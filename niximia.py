@@ -168,7 +168,22 @@ async def alive(event):
 
     await event.edit(f"Online")
 
+@client.on(events.NewMessage(outgoing=True, pattern=r"\.rl"))
+async def rate_list(event):
 
+    rates = """
+📋 RATE LIST
+
+🇮🇳 India: ₹10
+🇺🇸 USA: ₹20
+🇬🇧 UK: ₹25
+
+💳 Payment: UPI Only
+⚡ Instant Delivery
+"""
+
+    await event.edit(rates)
+    
 # ---------------- AUTO DELETE ALL GROUP MSGS ---------------- #
 
 @client.on(events.NewMessage(chats=TARGET_GROUP_ID))
@@ -188,7 +203,7 @@ async def main():
 
     await client.start()
 
-    print("Userbot running...")
+    print("ALL SET")
 
     asyncio.create_task(fake_typing())
     asyncio.create_task(send_quotes())
