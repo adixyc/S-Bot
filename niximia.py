@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "adubot is alive"
+    return "ADUBOT IS ONLINE!"
 
 def run_web():
     port = int(os.environ.get("PORT", 10000))
