@@ -159,31 +159,6 @@ async def delete_users_with_links(event):
     except Exception as e:
         print("Delete Error:", e)
 
-
-# ---------------- GROUP WELCOME ---------------- #
-# ---------------- DELETE USERS WITH LINKS IN BIO ---------------- #
-
-@client.on(events.NewMessage(chats=TARGET_GROUP_ID))
-async def delete_users_with_links(event):
-
-    try:
-        sender = await event.get_sender()
-
-        # ignore bots and yourself
-        if sender.bot or sender.is_self:
-            return
-
-        bad_bio = await has_link_in_bio(sender.id)
-
-        if bad_bio:
-
-            await event.delete()
-
-            print(f"Deleted message from {sender.id}")
-
-    except Exception as e:
-        print("Delete Error:", e)
-
 # ---------------- COMMANDS ---------------- #
 
 @client.on(events.NewMessage(outgoing=True, pattern=r"\.hi"))
