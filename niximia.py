@@ -6,13 +6,15 @@ import time
 from datetime import datetime
 from threading import Thread
 from flask import Flask
-
 from telethon import TelegramClient, events
 from telethon.sessions import StringSession
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.tl.types import MessageEntityMentionName
-
+from telethon.tl.types import (
+    ChannelParticipantAdmin,
+    ChannelParticipantCreator
+)
 # ---------------- WEB SERVER ---------------- #
 
 app = Flask(__name__)
