@@ -134,7 +134,30 @@ async def private_auto_reply(event):
             )
 
 # ---------------- KEYWORD REPLY ---------------- #
+@client.on(events.NewMessage(chats=TARGET_GROUP_ID))
+async def delete_users_with_links(event):
 
+    try:
+        sender = await event.get_sender()
+
+        if sender.bot or sender.is_self:
+            return
+
+        perms = await client.get_permissions(
+            TARGET_GROUP_ID,
+            sender.id
+        )
+
+        # Skip admins and owner
+        if perms.is_admin:
+            return
+
+        if await has_link_in_bio(sender.id):
+            await event.delete()
+            print(f"Deleted message from {sender.id}")
+
+    except Exception as e:
+        print("Delete Error:", e)
 
 
 # ---------------- GROUP WELCOME ---------------- #
