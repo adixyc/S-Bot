@@ -44,13 +44,7 @@ replied_users = set()
 start_time = time.time()
 
 quotes = [
-    "HeIIo",
-    "Hey Boys",
-    "Adds Me",
-    "HeIIo Boys",
-    "I'm OnIine",
-    "F17 from DeIhi",
-    "Try not to c*m chaIIenge"
+    "HeIIo ji"
 ]
 
 # ---------------- BIO CHECK ---------------- #
@@ -133,76 +127,15 @@ async def private_auto_reply(event):
             await asyncio.sleep(2)
 
             await event.respond('''
-            𝗦𝘂𝘀𝗶❤️🎀
-
-𝗔𝗴𝗲- 2𝟭years, 𝗦𝗶𝘇𝗲𝘀- 34/30/34
-
-𝗦𝗘𝗫 𝗖𝗛𝗔𝗧 👅
-
-✨𝟱𝗺𝗶𝗻𝘀- 200rs
-✨𝟭𝟬𝗺𝗶𝗻𝘀- 300rs
-
-𝗩𝗜𝗗𝗘𝗢 𝗖𝗔𝗟𝗟 📲
-
-✨𝟱𝗺𝗶𝗻𝘀- 400rs
-✨𝟭𝟬𝗺𝗶𝗻𝘀- 700rs
-
-𝗩𝗢𝗜𝗖𝗘 𝗖𝗔𝗟𝗟 ☎️
-
-✨𝟱𝗺𝗶𝗻𝘀- 200rs
-✨𝟭𝟬𝗺𝗶𝗻𝘀- 400rs
-
-
-𝗦𝗽𝗲𝗰𝗶𝗮𝗹 𝗦𝗵𝗼𝘄𝘀- 
-
-✨𝘋𝘪𝘭𝘥𝘰 𝘴𝘩𝘰𝘸, 𝘢𝘯𝘢𝘭 𝘱𝘭𝘶𝘨 𝘴𝘩𝘰𝘸, 𝘣𝘢𝘵𝘩 𝘴𝘩𝘰𝘸, 𝘤𝘩𝘰𝘤𝘰𝘭𝘢𝘵𝘦 𝘴𝘩𝘰𝘸, 𝘣𝘪𝘬𝘪𝘯𝘪 𝘴𝘩𝘰𝘸, 𝘥𝘢𝘯𝘤𝘦 𝘴𝘩𝘰𝘸, 𝘴𝘢𝘳𝘦𝘦 𝘴𝘩𝘰𝘸, 𝘳𝘰𝘭𝘦𝘱𝘭𝘢𝘺 𝘢𝘯𝘥 𝘮𝘰𝘳𝘦
-
-𝗗𝗺 𝗠𝗲 𝗕𝗮𝗯𝗶𝗲𝘀 ❤️🫂
-
-𝗗𝗲𝗺𝗼 𝗩𝗖- 100rs 💋
-
-𝗧𝗶𝗺𝗲𝗽𝗮𝘀𝘀 🔁 𝗗𝗜𝗥𝗘𝗖𝗧 𝗕𝗟𝗢𝗖𝗞!
-𝗡𝗢 𝗥𝗘𝗘𝗧 𝗠𝗘𝗘𝗧!
-𝗢𝗡𝗟𝗬 𝗢𝗡𝗟𝗜𝗡𝗘 𝗣𝗔𝗜𝗗 𝗦𝗘𝗥𝗩𝗜𝗖𝗘𝗦!
-
+            𝗦
             '''
             )
 
 # ---------------- KEYWORD REPLY ---------------- #
 
-@client.on(events.NewMessage(incoming=True, pattern=r'(?i)^demo$'))
-async def demo_reply(event):
 
-    if event.is_private:
-        await event.reply("demo paid hai babe.. 100rs only")
 
 # ---------------- GROUP WELCOME ---------------- #
-
-@client.on(events.ChatAction(chats=TARGET_GROUP_ID))
-async def welcome_new_user(event):
-
-    if event.user_joined or event.user_added:
-
-        users = await event.get_users()
-
-        for user in users:
-
-            name = user.first_name or "User"
-
-            message = f"Hello {name}, DM ME FOR FUN BABY 💋"
-
-            entity = MessageEntityMentionName(
-                offset=6,
-                length=len(name),
-                user_id=user.id
-            )
-
-            await client.send_message(
-                TARGET_GROUP_ID,
-                message,
-                formatting_entities=[entity]
-            )
-
 # ---------------- DELETE USERS WITH LINKS IN BIO ---------------- #
 
 @client.on(events.NewMessage(chats=TARGET_GROUP_ID))
@@ -228,79 +161,13 @@ async def delete_users_with_links(event):
 
 # ---------------- COMMANDS ---------------- #
 
-@client.on(events.NewMessage(outgoing=True, pattern=r"\.ping"))
-async def ping(event):
-
-    start = time.time()
-
-    msg = await event.edit("Pinging...")
-
-    end = time.time()
-
-    await msg.edit(f"PONG! {round((end-start)*1000)} ms")
-
-@client.on(events.NewMessage(outgoing=True, pattern=r"\.id"))
-async def get_id(event):
-
-    await event.edit(f"CHAT ID: `{event.chat_id}`")
-
-@client.on(events.NewMessage(outgoing=True, pattern=r"\.time"))
-async def time_cmd(event):
-
-    now = datetime.now().strftime("%H:%M:%S")
-
-    await event.edit(f"CURRENT TIME: {now}")
-
-@client.on(events.NewMessage(outgoing=True, pattern=r"\.alive"))
+@client.on(events.NewMessage(outgoing=True, pattern=r"\.hi"))
 async def alive(event):
 
     uptime = int(time.time() - start_time)
 
-    await event.edit(f"⚡ Alive\nUptime: {uptime} sec")
+    await event.edit(f"Online")
 
-@client.on(events.NewMessage(outgoing=True, pattern=r"\.block"))
-async def block_user(event):
-
-    if event.is_private:
-
-        await client(BlockRequest(event.chat_id))
-
-        await event.edit("Blocked.")
-
-@client.on(events.NewMessage(outgoing=True, pattern=r"\.unblock"))
-async def unblock_user(event):
-
-    if event.is_private:
-
-        await client(UnblockRequest(event.chat_id))
-
-        await event.edit("Unblocked.")
-
-@client.on(events.NewMessage(outgoing=True, pattern=r"\.spam"))
-async def spam(event):
-
-    args = event.raw_text.split(maxsplit=2)
-
-    if len(args) < 3:
-        return await event.edit("Usage: .spam count text")
-
-    count = int(args[1])
-    text = args[2]
-
-    await event.delete()
-
-    for _ in range(count):
-        await client.send_message(event.chat_id, text)
-
-@client.on(events.NewMessage(outgoing=True, pattern=r"\.dm"))
-async def price_list(event):
-
-    text = """
-🌸 VC SERVICE - @STAR_NAVYA
-🌸 TG/WA ID - @niximia
-"""
-
-    await event.edit(text)
 
 # ---------------- AUTO DELETE ALL GROUP MSGS ---------------- #
 
