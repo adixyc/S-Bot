@@ -129,7 +129,11 @@ async def private_auto_reply(event):
             await asyncio.sleep(2)
 
             await event.respond('''
-            𝗦
+            Hey dear thank you for messaging me. 🥰
+            
+            Join this awesome group @SWAPPINGE_WIFE 
+            
+            After joining message me again. ❤️
             '''
             )
 
