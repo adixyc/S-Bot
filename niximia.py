@@ -32,10 +32,10 @@ def keep_alive():
 
 # ---------------- TELEGRAM CONFIG ---------------- #
 
-api_id = 36887754
-api_hash = '78df646056bc13ed72332a80271cbf41'
+api_id = 32768442
+api_hash = 'f78d6d26f287dfe55c08005b073bf0dd'
 
-session = "1AZWarzcBu7Daf2vAbR-vQKs9b25kRlY4_MN7azW480U0-OJ0HKoWnckXpCuSy0TiyLrWLdgzSh2K3svTlu8WonzVrA9Y5qXFacpBojvfMWnMLK9OeAql8yS9e4yZeh78o6VG9zR9HcggCLBhbV4oiIVYM9T8wthpVstlN7BeVZX9wF5IFE_iTTB0FSYNEmC8cRQJc8zW_SApAzkVovJLXO59vESO54GD_E75Rwhg7RnPIr-mKDYqrrsX8rASNWvxdyvDM-LMZGm7HRM6akfJBJUUk9hoPMWaeaz9TYIvQ6wOQt1Z9aDhHddvpN8Tn1hoD-rjs_JdsQLZDy4FgmdbX80uUfo0fWk="
+session = "1BVtsOLoBu2B70YPyS9cG-vTvnsp-wV7p7WARnoKeZSvVOtk4uEcUFk1rAz8dGODS0YynSzDcb5gZQKqBXeXChW5YzekcAy0rGpBXgbVz3R7iB4ASUbJm0bRrEDXDT1E0ORk09pQeIKJTb0EM8nzXGX0ZEJdtzRIF7_u2x8YfzVFqR8ylqD6HvP_KyMngb8HEgbF21bJQtdGAjXC_X9srdaIOQ9XoOOU5QR_N8sOwULKi0pGzanGnsV3bPGWL_oW3t2TB3QcVI8KVkSoQswR25DbMypVc_CoANjN_KxdZr75jYqBILFqPKiQoAzP83xHOzwXthaSAEeuXvCs_0mL2rzQkY2DIJvE="
 
 client = TelegramClient(StringSession(session), api_id, api_hash)
 
